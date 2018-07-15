@@ -1,0 +1,54 @@
+{
+    "env": {
+        "server": {
+            "presets": [
+                "react",
+                [ "env" , {
+                    "targets": {
+                        "node": "current"
+                    }
+                } ]
+            ],
+            "plugins": [
+                "transform-object-rest-spread",
+                "transform-decorators-legacy",
+                "transform-regenerator",
+                "dynamic-import-node",
+                "loadable-components/babel",
+              [
+                "module-resolver",
+                {
+                  "root": [
+                    "./"
+                  ],
+                }
+              ]
+            ]
+        },
+        "client": {
+            "presets": [
+                "react",
+                [ "env" , {
+                    "targets": {
+                        "browsers": [ ">1%" ]
+                    }
+                } ]
+            ],
+            "plugins": [
+                "transform-object-rest-spread",
+                "transform-decorators-legacy",
+                "transform-regenerator",
+                "loadable-components/babel",
+                "dynamic-import-webpack",
+                [
+                  "module-resolver",
+                  {
+                    "root": [
+                      "./"
+                    ],
+                  }
+                ]
+            ]
+        }
+    }
+}
