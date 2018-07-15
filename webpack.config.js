@@ -23,8 +23,6 @@ const plugins = [
     } ),
 ]
 
-if ( Env === 'production' )
-    plugins.push( new webpack.optimize.UglifyJsPlugin() )
 
 if ( Analyze )
     plugins.push( new BundleAnalyzerPlugin() )
@@ -47,6 +45,7 @@ module.exports = {
         extensions: [ '*', '.js', '.json' ]
     },
     optimization: {
+      minimize: Env === 'production',
       splitChunks: {
         cacheGroups: {
           vendor: {

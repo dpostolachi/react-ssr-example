@@ -1,7 +1,7 @@
 require( 'babel-register' )
 require( 'babel-polyfill' )
 
-const PORT = process.env.PORT || 4021
+const PORT = process.env.PORT || 3000
 
 const server = require( './server' ).default
 

@@ -14,17 +14,15 @@ export default class extends PureComponent {
 
     }
 
-    componentDidMount(){
+    componentDidMount () {
 
         return fetch( 'https://jsonplaceholder.typicode.com/posts' )
-        .then( resp => resp.json() )
-        .then( posts => this.setState( { posts } ) )
+            .then( resp => resp.json() )
+            .then( posts => this.setState( { posts } ) )
 
     }
 
     render () {
-
-        console.log( this.state )
 
         const { posts } = this.state
 
@@ -39,7 +37,7 @@ export default class extends PureComponent {
                         return (
                             <div className='jumbotron' key={ key }>
                                 <h1 className='display-6'>{ title }</h1>
-                                <p className='lead'>{ `${body.substring(0, 20)}...` }</p>
+                                <p className='lead'>{ `${body.substring( 0, 20 )}...` }</p>
                                 <hr className='my-4' />
                                 <p className='lead'>
                                     <Link className="btn btn-primary btn-md" to={ `/post/${id}` }>Read more</Link>

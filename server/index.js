@@ -18,6 +18,8 @@ app
 
 export default ( { PORT } ) => {
 
+    console.log( 'Listening on port', PORT )
+    
     app.listen( PORT )
 
 }

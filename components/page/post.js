@@ -13,8 +13,6 @@ export default class extends PureComponent {
             comments: [],
         }
 
-        const { postId } = props.match.params
-
     }
 
     componentDidMount () {
@@ -22,40 +20,30 @@ export default class extends PureComponent {
         const { postId } = this.props.match.params
 
         fetch( `https://jsonplaceholder.typicode.com/posts/${postId}` )
-        .then( resp => resp.json() )
-        .then( ( post ) => {
-
-            const { title, body } = post
-
-            this.setState( {
-                title,
-                body,
+            .then( resp => resp.json() )
+            .then( ( post ) => {
+                const { title, body } = post
+                this.setState( {
+                    title,
+                    body,
+                } )
             } )
 
-        } )
-
         fetch( `https://jsonplaceholder.typicode.com/comments?postId=${postId}` )
-        .then( resp => resp.json() )
-        .then( ( comments ) => {
-
+            .then( resp => resp.json() )
+            .then( ( comments ) => {
                 this.setState( {
                     comments: comments.map( ( comment ) => {
-
-                        const { name ,body } = comment
-
+                        const { name, body } = comment
                         return {
                             name,
                             body
                         }
-
                     } )
-
                 } )
-
-        } )
+            } )
 
     }
-
 
     render () {
 
